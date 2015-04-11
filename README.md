@@ -25,4 +25,4 @@ In another tab queue some work
 docker-compose run --rm workers bash -c "rake work"
 ```
 
-![speed](https://dl.dropboxusercontent.com/s/fc7evgb8hlcfuwf/2015-04-11%20at%205.27%20PM%202x.png?dl=0)
+![speed](https://dl.dropboxusercontent.com/s/s5znqmxhfxo85dr/2015-04-11%20at%205.57%20PM%202x.png?dl=0)
