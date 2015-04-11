@@ -1,0 +1,20 @@
+workers:
+  build: work
+  environment:
+    - REDIS_URL=redis://redis
+  volumes:
+    - ./work:/usr/src/app
+  links:
+    - redis
+monitor:
+  build: web
+  ports:
+    - "5000:5000"
+  environment:
+    - REDIS_URL=redis://redis
+  volumes:
+    - ./web:/usr/src/app
+  links:
+    - redis
+redis:
+  image: redis:2.8.17

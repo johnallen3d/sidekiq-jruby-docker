@@ -1,0 +1,13 @@
+require 'rubygems'
+require 'bundler'
+
+task :work do
+  require 'securerandom'
+  require_relative './app/workers/worker'
+
+  key = SecureRandom.uuid
+
+  (1..10_000).each do
+    Worker.perform_async(key)
+  end
+end
