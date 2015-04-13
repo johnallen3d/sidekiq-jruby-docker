@@ -7,7 +7,10 @@ task :work do
 
   key = SecureRandom.uuid
 
-  (1..10_000).each do
-    Worker.perform_async(key)
+  (1..1_000).each do
+    Sidekiq::Client.push_bulk(
+      'class' => Worker,
+      'args' => (1..1_000).map { [key] }
+    )
   end
 end
